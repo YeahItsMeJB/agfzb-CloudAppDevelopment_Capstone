@@ -46,9 +46,9 @@ class CarModel(models.Model):
         return "Car Make: " + self.carmake.name + "," + \
                "Description: " + self.carmake.description + "," + \
                "Car Model: " + self.name + "," + \
-               "Dealer ID: " + self.dealer_id + "," + \
+               "Dealer ID: " + str(self.dealer_id) + "," + \
                "Type: " + self.vehicle_type + "," + \
-               "Year: " + self.year
+               "Year: " + str(self.year)
 
 
 # <HINT> Create a plain Python class `CarDealer` to hold dealer data
@@ -82,11 +82,10 @@ class CarDealer:
 class DealerReview:
 
     def __init__(self, dealership, name, purchase, review, purchase_date, 
-                    car_make, car_model, car_year, sentiment, id):
+                    car_make, car_model, car_year, sentiment):
         self.dealership = dealership
         self.name = name
         self.purchase = purchase
-        self.id = id
         self.review = review
         self.purchase_date = purchase_date
         self.car_make = car_make

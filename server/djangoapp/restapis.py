@@ -70,7 +70,7 @@ def get_dealer_reviews_from_cf(url, **kwargs):
             if review["_id"][0] == "_":
                 continue
             review_obj = DealerReview(dealership=review["dealership"], name=review["name"], 
-                            purchase=review["purchase"], id=review["id"], review=review["review"], 
+                            purchase=review["purchase"], review=review["review"], 
                             purchase_date=review["purchase_date"], car_make=review["car_make"], 
                             car_model=review["car_model"], car_year=review["car_year"], 
                             sentiment=analyze_review_sentiments(review["review"]))

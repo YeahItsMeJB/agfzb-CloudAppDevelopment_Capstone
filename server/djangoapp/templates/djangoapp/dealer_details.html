@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="margin-bottom:75px">
 <head>
     <meta charset="UTF-8">
     <title>Dealership Review</title>
@@ -52,11 +52,14 @@
     <!-- Add reviews as cards -->
     <br>
     <div class="container">
+        <h2 class="text-light">
         {% if reviews %}
-          <h2 class="text-light">Reviews for <strong>{{dealership_name}}</strong></h2>
+          Reviews for <strong>{{dealership_name}}</strong>
         {% else %}
-          <h2 class="text-light">No reviews were found for this dealership.</h2>
+          No reviews were found for this dealership.
         {% endif %}
+        <a href="{% url 'djangoapp:add_review' dealer_id %}" class="btn btn-primary ml-4 mb-1">Add Review</a>
+        </h2>
       <br>
       <div class="card-columns">
       {% for review in reviews %}
