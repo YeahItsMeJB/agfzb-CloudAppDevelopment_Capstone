@@ -1,0 +1,21 @@
+FROM python:3.8.2
+
+    ENV PYTHONBUFFERED 1
+    ENV PYTHONWRITEBYTECODE 1
+
+    ENV APP=/app
+
+    # Change the workdir for Docker application.
+    WORKDIR $APP
+
+    # Install the requirements
+    COPY requirements.txt $APP
+    RUN pip install --upgrade pip
+    RUN pip install -r requirements.txt
+
+    # Copy the rest of the files
+    COPY . $APP
+
+    EXPOSE 8000
+
+    CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
